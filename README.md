@@ -47,18 +47,16 @@ Output is in `dist/`.
    - The workflow builds the app with the correct base path and pushes the result to the `gh-pages` branch.
 
 3. **Your site** will be at:
-   - `https://<username>.github.io/<repo-name>/`  
-     Example: if the repo is `my-stuff`, the app is at `https://username.github.io/my-stuff/`.
+   - `https://<username>.github.io/my-itemz/`  
+     Example: if your GitHub username is `johndoe`, the app is at `https://johndoe.github.io/my-itemz/`.
 
 ### Option 2: Manual build and deploy
 
 1. **Set the base path** for your repo (required for project sites):
 
    ```bash
-   BASE_PATH=/YOUR_REPO_NAME/ npm run build
+   BASE_PATH=/my-itemz/ npm run build
    ```
-
-   Example: `BASE_PATH=/my-stuff/ npm run build`
 
 2. **Deploy the `dist/` folder**:
    - Use the **gh-pages** package: `npx gh-pages -d dist`
