@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0f172a;
+  --bg-card: #1f2937;
+  --bg-elevated: #111827;
+  --primary: #3b82f6;
+  --danger: #ef4444;
+  --text: #f9fafb;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.safe-area-pb {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom, 0));
+}
+
+/* Touch-friendly minimum target size */
+.touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
