@@ -18,7 +18,6 @@ Mobile-first, dark-mode web app to manage items you own and want to sell. Built 
 ## Local development
 
 ```bash
-cd frontend
 npm install
 npm run dev
 ```
@@ -28,11 +27,10 @@ App runs at `http://localhost:5173`.
 ## Build
 
 ```bash
-cd frontend
 npm run build
 ```
 
-Output is in `frontend/dist/`.
+Output is in `dist/`.
 
 ## Deploy to GitHub Pages
 
@@ -42,8 +40,8 @@ Output is in `frontend/dist/`.
    - Go to **Settings → Pages**
    - Under **Build and deployment**, set **Source** to **GitHub Actions**
 
-2. **Push the workflow** (already in this repo):
-   - `.github/workflows/deploy.yml` builds the frontend with the correct base path and deploys to GitHub Pages.
+2. **Push to deploy**:
+   - `.github/workflows/deploy.yml` builds the app with the correct base path and deploys to GitHub Pages.
    - Push to the `main` branch (or run the workflow manually from the **Actions** tab).
 
 3. **Your site** will be at:
@@ -55,14 +53,13 @@ Output is in `frontend/dist/`.
 1. **Set the base path** for your repo (required for project sites):
 
    ```bash
-   cd frontend
    BASE_PATH=/YOUR_REPO_NAME/ npm run build
    ```
 
    Example: `BASE_PATH=/my-stuff/ npm run build`
 
-2. **Deploy the `frontend/dist/` folder**:
-   - Use the **gh-pages** package: `npx gh-pages -d frontend/dist`
+2. **Deploy the `dist/` folder**:
+   - Use the **gh-pages** package: `npx gh-pages -d dist`
    - Or push `dist` contents to a `gh-pages` branch.
    - In **Settings → Pages**, set source to the `gh-pages` branch (or the branch/folder you use).
 
@@ -71,17 +68,16 @@ No API or environment variables are required; everything runs in the browser wit
 ## Project structure
 
 ```
-frontend/
-  src/
-    components/   # BottomNav, FAB, Toast, Modal, Card
-    pages/        # Home, AddItemWizard, ItemDetail, CategoryManagement, Statistics, Insights
-    hooks/        # useItems, useCategories, useStats, useInsightsStats
-    services/     # dataService (localStorage)
-    utils/        # currency formatting
-    types/
+src/
+  components/   # BottomNav, FAB, Toast, Modal, Card
+  pages/        # Home, AddItemWizard, ItemDetail, CategoryManagement, Statistics, Insights
+  hooks/        # useItems, useCategories, useStats, useInsightsStats
+  services/     # dataService (localStorage)
+  utils/        # currency formatting
+  types/
 .github/
   workflows/
-    deploy.yml    # GitHub Actions deploy to Pages
+    deploy.yml  # GitHub Actions deploy to Pages
 ```
 
 ## License
