@@ -18,9 +18,14 @@ function Layout({ children }: { children: React.ReactNode }) {
   );
 }
 
+const basename =
+  import.meta.env.BASE_URL === "/"
+    ? undefined
+    : import.meta.env.BASE_URL.replace(/\/$/, "");
+
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <ToastProvider>
         <Routes>
           <Route
