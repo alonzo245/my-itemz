@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "build:pages": "tsc --noEmit && vite build --base /my-itemz/",
+    "preview": "vite preview",
+    "deploy": "npm run build:pages && gh-pages -d dist"
   },
   "dependencies": {
     "react": "^18.2.0",
@@ -14,6 +16,7 @@
     "react-router-dom": "^6.21.1"
   },
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
     "@vitejs/plugin-react": "^4.2.1",

@@ -51,17 +51,21 @@ Output is in `dist/`.
    - `https://<username>.github.io/my-itemz/`  
      Example: if your GitHub username is `johndoe`, the app is at `https://johndoe.github.io/my-itemz/`.
 
-### Option 2: Manual build and deploy
+### Option 2: Deploy from your machine (npm scripts)
 
-1. **Set the base path** for your repo (required for project sites):
+1. **Enable GitHub Pages** (same as above): **Settings → Pages** → **Deploy from a branch** → branch **`gh-pages`**.
+
+2. **Build for GitHub Pages** (base path `/my-itemz/`):
 
    ```bash
-   BASE_PATH=/my-itemz/ npm run build
+   npm run build:pages
    ```
 
-2. **Deploy the `dist/` folder**:
-   - Use the **gh-pages** package: `npx gh-pages -d dist`
-   - In **Settings → Pages**, set source to the `gh-pages` branch.
+3. **Build and deploy in one step** (pushes `dist/` to the `gh-pages` branch):
+   ```bash
+   npm run deploy
+   ```
+   Requires the `gh-pages` package (already in devDependencies). The first run may prompt for GitHub auth.
 
 No API or environment variables are required; everything runs in the browser with localStorage.
 
