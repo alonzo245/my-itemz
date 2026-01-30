@@ -39,7 +39,8 @@ Output is in `dist/`.
 1. **Enable GitHub Pages** in your repo:
    - Go to **Settings → Pages**
    - Under **Build and deployment**, set **Source** to **Deploy from a branch**
-   - Set **Branch** to `gh-pages` and folder to **/ (root)**, then Save
+   - Set **Branch** to `gh-pages` (not `main`) and folder to **/ (root)**, then Save
+   - **Important:** The site must be served from the `gh-pages` branch (where the workflow pushes the built app). If you use `main`, the browser will load the source `index.html` and get 404s for `/src/main.tsx`.
    - (The first workflow run will create the `gh-pages` branch.)
 
 2. **Push to deploy**:
