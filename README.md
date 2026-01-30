@@ -38,11 +38,13 @@ Output is in `dist/`.
 
 1. **Enable GitHub Pages** in your repo:
    - Go to **Settings → Pages**
-   - Under **Build and deployment**, set **Source** to **GitHub Actions**
+   - Under **Build and deployment**, set **Source** to **Deploy from a branch**
+   - Set **Branch** to `gh-pages` and folder to **/ (root)**, then Save
+   - (The first workflow run will create the `gh-pages` branch.)
 
 2. **Push to deploy**:
-   - `.github/workflows/deploy.yml` builds the app with the correct base path and deploys to GitHub Pages.
-   - Push to the `main` branch (or run the workflow manually from the **Actions** tab).
+   - Push to the `main` branch (or run **Deploy to GitHub Pages** manually from the **Actions** tab).
+   - The workflow builds the app with the correct base path and pushes the result to the `gh-pages` branch.
 
 3. **Your site** will be at:
    - `https://<username>.github.io/<repo-name>/`  
@@ -60,8 +62,7 @@ Output is in `dist/`.
 
 2. **Deploy the `dist/` folder**:
    - Use the **gh-pages** package: `npx gh-pages -d dist`
-   - Or push `dist` contents to a `gh-pages` branch.
-   - In **Settings → Pages**, set source to the `gh-pages` branch (or the branch/folder you use).
+   - In **Settings → Pages**, set source to the `gh-pages` branch.
 
 No API or environment variables are required; everything runs in the browser with localStorage.
 
